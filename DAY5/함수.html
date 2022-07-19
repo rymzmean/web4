@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .output {
+        width: 200px;
+        height: 400px;
+        background-color: #ebebeb;
+        border: 1px solid #232323;
+        box-sizing: border-box;
+        padding: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="">몇단 출력할까요?</label>
+    <input id="dan-intup" type="text" />
+    <button id="calc">출력</button>
+    <script>
+      function 세트로실행() {
+        intro();
+        구구단();
+      }
+
+      function 구구단() {
+        let dan = prompt(`몇단을 출력할까요?`);
+
+        for (let i = 1; i <= 9; i++) {
+          console.log(`${dan} x ${i} = ${dan * i}`);
+        }
+      }
+
+      function intro() {
+        alert("안녕하세요");
+        alert("제 이름은 홍길동입니다");
+        alert("잘부탁드립니다");
+      }
+
+      function 전달받는구구단(dan) {
+        for (let i = 1; i <= 9; i++) {
+          console.log(`${dan} x ${i} = ${dan * i}`);
+        }
+      }
+    </script>
+  </body>
+</html>
