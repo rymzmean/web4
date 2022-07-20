@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
-    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title></title>
     <style>
-      .output {
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
         width: 200px;
         height: 400px;
         background-color: #ebebeb;
@@ -14,13 +19,43 @@
         box-sizing: border-box;
         padding: 32px;
       }
+
+      .now-dan {
+        margin-bottom: 16px;
+      }
     </style>
   </head>
   <body>
     <label for="">몇단 출력할까요?</label>
-    <input id="dan-intup" type="text" />
+    <input id="dan-input" type="text" />
     <button id="calc">출력</button>
+
+    <div class="container">
+      <h2 id="now-dan">asd</h2>
+      <p class="output">111</p>
+    </div>
+
     <script>
+      const calcButton = document.getElementById("calc");
+      const danInput = document.getElementById("dan-input");
+
+      calcButton.addEventListener("click", () => {
+        const dan = danInput.value;
+        danInput.value = "";
+
+        const nowDan = document.getElementById("now-dan");
+        nowDan.innerText = `${dan}단`;
+
+        const output = document.getElementsByClassName("output");
+
+        output[0].innerText = "";
+        for (let i = 1; i <= 9; i++) {
+          output[0].innerHTML += `${dan} x ${i} = ${dan * i}<br>`;
+
+          // output[0].innerHTML = output[0].innerHTML + `${dan} x ${i} = ${dan * i}<br>`;
+        }
+      });
+
       function 세트로실행() {
         intro();
         구구단();
@@ -37,7 +72,7 @@
       function intro() {
         alert("안녕하세요");
         alert("제 이름은 홍길동입니다");
-        alert("잘부탁드립니다");
+        alert("잘 부탁드립니다");
       }
 
       function 전달받는구구단(dan) {
