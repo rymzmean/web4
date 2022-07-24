@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 300px;
+        height: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .print {
+        font-size: 56px;
+        font-weight: bold;
+      }
+      .count-up-button {
+        width: 250px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p class="print">0</p>
+      <button class="count-up-button">카운트 멈춤</button>
+    </div>
+    <script>
+      const print = document.querySelector(".print");
+      let count = 0;
+
+      //   인터벌은 일정 시간마다 주어진 함수를 계속 실행한다!
+
+      let countUp;
+      countUpStart();
+
+      const countUpButton = document.querySelector(".count-up-button");
+      countUpButton.addEventListener("click", () => {
+        if (countUp) {
+          clearInterval(countUp);
+          countUp = false;
+          countUpButton.innerText = "카운트 다시시작";
+        } else {
+          countUpStart();
+          countUpButton.innerText = "카운트 멈춤";
+        }
+      });
+
+      function countUpStart() {
+        countUp = setInterval(() => {
+          count++;
+          print.innerText = count;
+        }, 100);
+      }
+    </script>
+  </body>
+</html>
