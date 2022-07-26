@@ -18,8 +18,22 @@
       .container {
         overflow: hidden;
       }
+
       .to-right {
         transform: translateX(200px);
+        opacity: 0;
+      }
+
+      .to-left {
+        transform: translateX(-200px);
+        opacity: 0;
+      }
+      .to-top {
+        transform: translateY(-200px);
+        opacity: 0;
+      }
+      .to-bottom {
+        transform: translateY(200px);
         opacity: 0;
       }
 
@@ -33,9 +47,9 @@
     <div class="container">
       <h2 class="sa to-right">안녕하세요</h2>
       <h2 class="sa to-right">저는 홍길동입니다</h2>
-      <h2 class="sa to-right">나이는 xx살이고</h2>
-      <h2 class="sa to-right">웹 퍼블리셔 과정을 공부하고있습니다</h2>
-      <h2 class="sa to-right">잘부탁드립니다.</h2>
+      <h2 class="sa to-left">나이는 xx살이고</h2>
+      <h2 class="sa to-top">웹 퍼블리셔 과정을 공부하고있습니다</h2>
+      <h2 class="sa to-bottom">잘부탁드립니다.</h2>
     </div>
 
     <script>
@@ -43,17 +57,28 @@
 
       const scrollAnimationFunction = function () {
         for (let i = 0; i < scrollAnimation.length; i++) {
+          console.log("연산");
           if (
             scrollAnimation[i].getBoundingClientRect().top -
-              (window.innerHeight / 3) * 2 <
+              window.innerHeight <
             0
           ) {
-            scrollAnimation[i].classList.remove("to-right");
+            scrollAnimation[i].classList.add("show");
           } else {
-            scrollAnimation[i].classList.add("to-right");
+            scrollAnimation[i].classList.remove("show");
           }
         }
       };
+
+      function 함수이름() {}
+
+      const 함수이름 = function () {};
+
+      const 함수이름2 = function 함수이름22() {};
+
+      const 즉시실행함수로 = () => {};
+
+      const 거의안쓰는 = new Function();
       //   for (let i = 0; i < scrollAnimation.length; i++) {
       //     window.addEventListener("scroll", () => {
       //       console.log("연산");
